@@ -1,25 +1,12 @@
-Python function to get a RGB pic and create a apple.txt with all commands (poke to memory) need to set HIRES2 memory
+Python function to get a RGB pic and create an apple.txt with all commands (poke to memory) need to set HIRES2 memory
 
-TODO => finetune needed for luminance and RGB balance data
+TODO => clean code and create class
 
 
-Quoi ?
-Le code prend un fichier image, le convertit dans un format spécifique pour l'ordinateur Apple II, puis écrit le programme résultant dans un fichier texte.
+Le code fourni est un script Python qui effectue la conversion d'une image en un programme BASIC pour l'Apple II. Voici un résumé des principales fonctionnalités du code :
 
-Comment ?
-Le code utilise la bibliothèque PIL pour ouvrir et redimensionner l'image. Ensuite, il traite chaque pixel de l'image pour déterminer la couleur correspondante pour l'Apple II. Les informations de couleur sont converties dans un format spécifique pour l'Apple II et stockées dans une liste. Enfin, la liste est écrite dans un fichier texte.
-
-Couplage et Cohésion
-Le code présente un couplage modéré, car il dépend de la bibliothèque PIL pour le traitement des images. Les fonctions sont cohérentes, chaque fonction ayant une responsabilité claire liée au processus global de conversion de l'image.
-
-Principe de Responsabilité Unique
-Le code respecte le principe de responsabilité unique, chaque fonction ayant une responsabilité claire et spécifique. Cependant, la fonction convert_image_to_basic pourrait être améliorée en extrayant le traitement des couleurs et des non-couleurs dans des fonctions distinctes pour améliorer la lisibilité et la maintenabilité.
-
-Choses inhabituelles
-La fonction rgb_pixels_to_apple_hires utilise des opérations bit à bit pour définir des bits spécifiques dans byte1 et byte2 en fonction des valeurs de couleur calculées.
-La fonction rgb_to_apple_color utilise une combinaison de luminance et de seuils de couleur pour déterminer la couleur de l'Apple II.
-La fonction convert_image_to_basic contient une logique conditionnelle pour le traitement des couleurs et des non-couleurs, mais le traitement des non-couleurs n'est pas utilisé dans le code fourni.
-Points suspects
-La variable globale DEBUG n'est pas utilisée dans le code et peut être supprimée.
-La variable b_use_color n'est pas utilisée dans le code fourni et peut être supprimée.
-La fonction convert_image_to_basic ne gère pas les erreurs ou les exceptions liées aux opérations de fichier.
+Le code utilise la bibliothèque PIL (Python Imaging Library) pour manipuler les images.
+Il définit plusieurs fonctions pour effectuer différentes techniques de dithering (floyd_steinberg_dithering, atkinson_dithering, stucki_dithering) et pour convertir les pixels RGB en couleurs Apple II (rgb_pixels_to_apple_hires).
+La fonction convert_image_to_basic est la fonction principale qui prend en entrée le chemin de l'image source, le chemin du fichier de sortie et éventuellement une fonction de dithering à utiliser. Elle redimensionne et recadre l'image, applique le dithering, convertit les pixels en couleurs Apple II et génère le programme BASIC correspondant.
+Le programme BASIC généré est enregistré dans un fichier texte.
+Le code contient également des commentaires expliquant certains concepts liés à la conversion des couleurs et aux techniques de dithering utilisées.
